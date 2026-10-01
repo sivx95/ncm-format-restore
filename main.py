@@ -42,6 +42,7 @@ from qfluentwidgets import (
 from ncm_core import NcmError, decrypt_ncm
 
 APP_TITLE = "NCM 格式还原"
+APP_VERSION = "1.0.0"
 APP_ID = "ncm.format.restore.desktop"
 APP_DIR = Path(__file__).resolve().parent
 
@@ -450,7 +451,7 @@ class ConvertPage(QWidget):
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle(APP_TITLE)
+        self.setWindowTitle(f"{APP_TITLE} v{APP_VERSION}")
         self.resize(960, 660)
         icon = _make_icon()
         if icon is not None:
@@ -468,6 +469,7 @@ def main() -> int:
     )
     app = QApplication(sys.argv)
     app.setApplicationName(APP_TITLE)
+    app.setApplicationVersion(APP_VERSION)
     app.setOrganizationName("NCMTools")
     icon = _make_icon()
     if icon is not None:
